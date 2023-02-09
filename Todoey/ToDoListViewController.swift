@@ -22,7 +22,12 @@ class ToDoListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        cell=Table
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
+        
+        cell.textLabel?.text=itemArray[indexPath.row]
+        
+        return cell
+    
     }
 }
 
