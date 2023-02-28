@@ -8,12 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ToDoodle-->
+        <!--2Do-->
         <scene sceneID="nbA-NA-T6a">
             <objects>
                 <tableViewController id="WsW-Im-jcm" customClass="ToDoListViewController" customModule="Todoey" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Brz-CR-OTF">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -32,7 +32,7 @@
                             <outlet property="delegate" destination="WsW-Im-jcm" id="aBP-Yi-9uE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ToDoodle" id="a7a-KX-pho"/>
+                    <navigationItem key="navigationItem" title="2Do" id="a7a-KX-pho"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oP7-a0-gKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,7 +43,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IhF-4Q-hEN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BZL-Vb-VjW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BZL-Vb-VjW">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" systemColor="tintColor"/>
