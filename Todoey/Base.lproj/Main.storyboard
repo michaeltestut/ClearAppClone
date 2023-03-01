@@ -13,7 +13,7 @@
             <objects>
                 <tableViewController id="WsW-Im-jcm" customClass="ToDoListViewController" customModule="Todoey" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Brz-CR-OTF">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -32,7 +32,13 @@
                             <outlet property="delegate" destination="WsW-Im-jcm" id="aBP-Yi-9uE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="2Do" id="a7a-KX-pho"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="2Do" id="a7a-KX-pho">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="VMM-5X-XU5">
+                            <color key="tintColor" systemColor="secondarySystemBackgroundColor"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oP7-a0-gKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,7 +49,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IhF-4Q-hEN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BZL-Vb-VjW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BZL-Vb-VjW">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" systemColor="tintColor"/>
@@ -62,6 +68,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
