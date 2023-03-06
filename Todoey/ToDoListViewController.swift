@@ -48,8 +48,14 @@ class ToDoListViewController: UITableViewController {
         let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-//            
+            print("success")
         }
+        alert.addTextField{(alertTextField)in
+            alertTextField.placeholder="Create New Item"
+        }
+        alert.addAction(action)
+        
+        present(alert, animated: true)
     }
     
 }
