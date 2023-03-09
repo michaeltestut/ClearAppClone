@@ -7,12 +7,17 @@ import UIKit
 
 class ToDoListViewController: UITableViewController {
 
-    var itemArray=["born","live","die"]
+    var itemArray : [String] = []
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         navigationController!.view.backgroundColor = .systemBlue
+        if let items = defaults.array(forKey: "ToDoListArray") as? [String]{
+            itemArray = items;
+        }
         
     }
 
@@ -52,6 +57,7 @@ class ToDoListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             if textField.text != ""{
                 self.itemArray.append(textField.text!)
+                self.defaults.set(self.itemArray, forKey: "ToDoListArray")
                 self.tableView.reloadData()
             }
         }
