@@ -20,9 +20,7 @@ class ToDoListViewController: UITableViewController {
         // Do any additional setup after loading the view.
         navigationController!.view.backgroundColor = .systemBlue
         
-        if let items = defaults.array(forKey: "ToDoListArray") as? [Item]{
-            itemArray = items;
-        }
+        loadItems()
         
     }
 
@@ -91,6 +89,17 @@ class ToDoListViewController: UITableViewController {
         }
         
         tableView.reloadData()
+    }
+    
+    func loadItems(){
+        if let data = try? Data(contentsOf: dataFilePath!){
+            let decoder = PropertyListDecoder()
+            do{
+                itemArray = try decoder.decode([Item].self, from: data)
+            } catch {
+                print(error)
+            }
+        }
     }
     
 }
