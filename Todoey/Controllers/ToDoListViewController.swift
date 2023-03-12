@@ -4,8 +4,10 @@
 //
 
 import UIKit
+import CoreData
 
 class ToDoListViewController: UITableViewController {
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     var itemArray : [Item] = []
     
@@ -62,7 +64,8 @@ class ToDoListViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             if textField.text != ""{
-                let newItem = Item()
+                
+                let newItem = Item(context: self.context)
                 newItem.title = textField.text!
                 self.itemArray.append(newItem)
                 self.saveItems()
@@ -79,13 +82,11 @@ class ToDoListViewController: UITableViewController {
     }
     
     func saveItems(){
-        let encoder = PropertyListEncoder()
         
         do{
-            let data = try encoder.encode(itemArray)
-            try  data.write(to: dataFilePath!)
+            try context.save()
         } catch {
-            print("Error encoding: \(error)")
+            print("Error saving: \(error)")
         }
         
         tableView.reloadData()
