@@ -99,5 +99,11 @@ class ToDoListViewController: UITableViewController {
         }
     }
     
+    func deleteItems(indexPath: IndexPath){
+        context.delete(itemArray[indexPath.row])
+        itemArray.remove(at: indexPath.row)
+        saveItems()
+    }
+    
 }
 
