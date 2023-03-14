@@ -11,9 +11,6 @@ class ToDoListViewController: UITableViewController {
 
     var itemArray : [Item] = []
     
-    let defaults = UserDefaults.standard
-    
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +64,7 @@ class ToDoListViewController: UITableViewController {
                 
                 let newItem = Item(context: self.context)
                 newItem.title = textField.text!
+                newItem.done = false
                 self.itemArray.append(newItem)
                 self.saveItems()
                 
@@ -93,13 +91,11 @@ class ToDoListViewController: UITableViewController {
     }
     
     func loadItems(){
-        if let data = try? Data(contentsOf: dataFilePath!){
-            let decoder = PropertyListDecoder()
-            do{
-                itemArray = try decoder.decode([Item].self, from: data)
-            } catch {
-                print(error)
-            }
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        do{
+            itemArray = try context.fetch(request)
+        } catch {
+            print(error)
         }
     }
     
