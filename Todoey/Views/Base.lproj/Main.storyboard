@@ -16,9 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Ahd-n3-IwY">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="WsW-Im-jcm" id="Fr5-ay-qc6"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoItemCell" id="3Yv-cP-2oD">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ToDoItemCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Yv-cP-2oD" id="e06-hX-5sy">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
@@ -42,8 +50,20 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Gz1-rF-wVW" id="jUq-4j-RIg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oP7-a0-gKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Gz1-rF-wVW">
+                    <connections>
+                        <outlet property="delegate" destination="WsW-Im-jcm" id="kdK-5Y-c97"/>
+                        <outlet property="searchBar" destination="Ahd-n3-IwY" id="WTq-4U-UdT"/>
+                        <outlet property="searchContentsController" destination="WsW-Im-jcm" id="SFs-Ln-ZkW"/>
+                        <outlet property="searchResultsDataSource" destination="WsW-Im-jcm" id="nWr-oU-8hc"/>
+                        <outlet property="searchResultsDelegate" destination="WsW-Im-jcm" id="57o-3O-J3f"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="976.33587786259534" y="-27.464788732394368"/>
         </scene>
