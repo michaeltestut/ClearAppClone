@@ -6,7 +6,7 @@
 import UIKit
 import CoreData
 
-class ToDoListViewController: UITableViewController, UISearchBarDelegate {
+class ToDoListViewController: UITableViewController{
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     var itemArray : [Item] = []
@@ -17,6 +17,7 @@ class ToDoListViewController: UITableViewController, UISearchBarDelegate {
         
         // Do any additional setup after loading the view.
         navigationController!.view.backgroundColor = .systemBlue
+        
         
         loadItems()
         
@@ -104,8 +105,12 @@ class ToDoListViewController: UITableViewController, UISearchBarDelegate {
         saveItems()
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        <#code#>
-    }
 }
 
+//MARK: - Search Bar Methods
+
+extension ToDoListViewController: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let request : NSFetchRequest<Item>= Item.fetchRequest()
+    }
+}
