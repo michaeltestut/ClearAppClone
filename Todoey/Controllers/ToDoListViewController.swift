@@ -111,6 +111,6 @@ class ToDoListViewController: UITableViewController{
 
 extension ToDoListViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let request : NSFetchRequest<Item>= Item.fetchRequest()
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
     }
 }
