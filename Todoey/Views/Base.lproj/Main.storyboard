@@ -50,20 +50,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="Gz1-rF-wVW" id="jUq-4j-RIg"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oP7-a0-gKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="Gz1-rF-wVW">
-                    <connections>
-                        <outlet property="delegate" destination="WsW-Im-jcm" id="kdK-5Y-c97"/>
-                        <outlet property="searchBar" destination="Ahd-n3-IwY" id="WTq-4U-UdT"/>
-                        <outlet property="searchContentsController" destination="WsW-Im-jcm" id="SFs-Ln-ZkW"/>
-                        <outlet property="searchResultsDataSource" destination="WsW-Im-jcm" id="nWr-oU-8hc"/>
-                        <outlet property="searchResultsDelegate" destination="WsW-Im-jcm" id="57o-3O-J3f"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="976.33587786259534" y="-27.464788732394368"/>
         </scene>
