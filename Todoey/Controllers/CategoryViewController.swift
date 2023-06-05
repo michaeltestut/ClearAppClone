@@ -55,7 +55,7 @@ class CategoryViewController: UITableViewController {
                 let newCategory = ItemCategory(context: self.context)
                 newCategory.name = textField.text!
                 self.categoryArray.append(newCategory)
-                self.saveItems()
+                self.saveCategories()
                 
             }
         }
@@ -68,7 +68,12 @@ class CategoryViewController: UITableViewController {
         present(alert, animated: true)
     }
     
-    func saveItems(){
+    
+    
+    
+    
+    //MARK: - Data Manipulation Methods
+    func saveCategories(){
         
         do{
             try context.save()
@@ -88,15 +93,10 @@ class CategoryViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func deleteItems(indexPath: IndexPath){
+    func deleteCategory(indexPath: IndexPath){
         context.delete(categoryArray[indexPath.row])
         categoryArray.remove(at: indexPath.row)
-        saveItems()
+        saveCategories()
     }
-    
-    
-    
-    
-    //MARK: - Data Manipulation Methods
     
 }
