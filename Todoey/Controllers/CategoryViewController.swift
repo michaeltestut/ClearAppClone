@@ -11,14 +11,16 @@ import CoreData
 
 class CategoryViewController: UITableViewController {
     
-    var categoryArray : [ItemCategory] = []
+    var categoryArray = [ItemCategory]()
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController!.view.backgroundColor = .systemBlue
         
-        //loadCategories()
+        loadCategories()
     }
     
     //MARK: - TableView DataSource Methods
@@ -35,14 +37,66 @@ class CategoryViewController: UITableViewController {
         
         
         return cell
-    
+        
     }
     //MARK: - TableView Delegate Methods
-
+    //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    
     //MARK: - Add New Category
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add Category", style: .default) { (action) in
+            if textField.text != ""{
+                
+                let newCategory = ItemCategory(context: self.context)
+                newCategory.name = textField.text!
+                self.categoryArray.append(newCategory)
+                self.saveItems()
+                
+            }
+        }
+        alert.addTextField{(alertTextField)in
+            alertTextField.placeholder="Create New Category"
+            textField=alertTextField
+        }
+        alert.addAction(action)
+        
+        present(alert, animated: true)
     }
+    
+    func saveItems(){
+        
+        do{
+            try context.save()
+        } catch {
+            print("Error saving: \(error)")
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func loadCategories(with request: NSFetchRequest<ItemCategory> = ItemCategory.fetchRequest() ){
+        do{
+            categoryArray = try context.fetch(request)
+        } catch {
+            print(error)
+        }
+        tableView.reloadData()
+    }
+    
+    func deleteItems(indexPath: IndexPath){
+        context.delete(categoryArray[indexPath.row])
+        categoryArray.remove(at: indexPath.row)
+        saveItems()
+    }
+    
+    
     
     
     //MARK: - Data Manipulation Methods
+    
 }
