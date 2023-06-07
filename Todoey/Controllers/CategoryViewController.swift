@@ -18,7 +18,7 @@ class CategoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController!.view.backgroundColor = .systemBlue
+        navigationController!.view.backgroundColor = .systemPink
         
         loadCategories()
     }
